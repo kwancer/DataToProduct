@@ -2,6 +2,24 @@
 
 This repository contains the code for the Data to Product coursework by Krzysztof and Erietta.
 
+## Required R Packages
+
+Install all dependencies with:
+
+```r
+install.packages(c(
+  "shiny",
+  "leaflet",
+  "jsonlite",
+  "later",
+  "dplyr",
+  "lubridate",
+  "slider",
+  "tibble",
+  "mgcv"
+))
+```
+
 ## Running the App
 
 1. Clone the repository.
