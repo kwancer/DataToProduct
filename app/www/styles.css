@@ -1,0 +1,317 @@
+/* www/styles.css ---------------------------------------------------- */
+/* GLOBAL DESIGN TOKENS ---------------------------------------------- */
+
+:root {
+  --green-dark: #2f6f48;
+  --green: #4aa876;
+  --green-light: #dff3e8;
+  --bg: #f5f7f6;
+  --card: #ffffff;
+  --radius: 26px;
+  --shadow: 0 12px 32px rgba(0,0,0,0.06);
+  --subtitle: #667;
+  --border: #e5ece8;
+  --accent: #88c6a3;
+  --font: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
+}
+
+body {
+  background: var(--bg);
+  font-family: var(--font);
+  transition: background 0.25s, color 0.25s;
+}
+
+/* DARK MODE: override CSS variables -------------------------------- */
+
+body.dark {
+  --bg: #050807;
+  --card: #111819;
+  --border: #26322d;
+  --subtitle: #9fb1aa;
+  --green: #6bd39b;
+  --green-dark: #9ee0ba;
+  --green-light: #13251c;
+  color: #e7f0eb;
+}
+
+/* Weather card text colours ---------------------------------------- */
+
+.weather-card-text {
+  color: #3a3d3f;
+}
+
+.weather-card-sub {
+  color: #555;
+}
+
+body.dark .weather-card-text {
+  color: #e6efe9 !important;
+}
+
+body.dark .weather-card-sub {
+  color: #c6d7cf !important;
+}
+
+/* MAIN CARD --------------------------------------------------------- */
+
+.onboard {
+  max-width: 950px;
+  margin: 40px auto;
+  padding: 48px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: background 0.25s, border-color 0.25s, box-shadow 0.25s;
+}
+
+/* TITLES & TEXT ----------------------------------------------------- */
+
+.title {
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 17px;
+  color: var(--subtitle);
+  margin-bottom: 28px;
+}
+
+.section-icon {
+  height: 38px;
+  margin-bottom: 12px;
+  opacity: 0.9;
+}
+
+/* NAV ROW + BUTTONS ------------------------------------------------- */
+
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.next-btn,
+.back-btn {
+  border-radius: 999px !important;
+  padding: 12px 30px !important;
+  font-size: 16px !important;
+}
+
+.next-btn {
+  background: var(--green) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.back-btn {
+  background: var(--green-light) !important;
+  color: var(--green-dark) !important;
+  border: none !important;
+}
+
+/* PROGRESS BAR ------------------------------------------------------ */
+
+.progress-holder {
+  max-width: 950px;
+  margin: 10px auto 30px auto;
+  height: 6px;
+  background: #dde7e2;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+body.dark .progress-holder {
+  background: #1b2622;
+}
+
+#pbar {
+  width: 0%;
+  height: 100%;
+  background: #3fa46b;
+  transition: width 0.4s;
+}
+
+/* FORM CONTROLS ----------------------------------------------------- */
+
+input[type="text"],
+input[type="number"],
+select {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  font-size: 16px;
+  background: var(--card);
+  color: inherit;
+}
+
+/* LOADING CIRCLE ---------------------------------------------------- */
+
+.loading-circle {
+  width: 70px;
+  height: 70px;
+  border: 8px solid #dbe6e1;
+  border-top: 8px solid #3fa46b;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 50px auto;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* TIP BOX ----------------------------------------------------------- */
+
+.tip-box {
+  background: #f0faf4;
+  border-radius: 16px;
+  padding: 16px 20px;
+  border: 1px solid #cde8d3;
+  color: var(--green-dark);
+  margin-top: 20px;
+}
+
+body.dark .tip-box {
+  background: #0e1b15;
+  border-color: #244632;
+}
+
+/* WATERING HISTORY BARS --------------------------------------------- */
+
+.history-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 22px;
+  margin-top: 20px;
+}
+
+.bar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bar-bg {
+  width: 26px;
+  height: 130px;
+  background: #d8f0f5;
+  border-radius: 14px;
+  position: relative;
+  cursor: ns-resize;
+  overflow: hidden;
+  touch-action: none;
+}
+
+body.dark .bar-bg {
+  background: #193540;
+}
+
+.bar-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #4aa876;
+  border-radius: 14px;
+  height: 0%;
+  transition: height 0.2s;
+}
+
+.day-label {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #555;
+  text-align: center;
+}
+
+body.dark .day-label {
+  color: #bcd5c8;
+}
+
+.day-value {
+  margin-top: 3px;
+  font-size: 11px;
+  color: #999;
+}
+
+body.dark .day-value {
+  color: #8faa9b;
+}
+
+/* TOP NAV + THEME TOGGLE -------------------------------------------- */
+
+.top-nav {
+  max-width: 950px;
+  margin: 25px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 4px;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--subtitle);
+}
+
+.theme-toggle span {
+  user-select: none;
+}
+
+/* iOS-style switch -------------------------------------------------- */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #cfd8d3;
+  transition: 0.3s;
+  border-radius: 999px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  top: 3px;
+  background: white;
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.switch input:checked + .slider {
+  background: #4aa876;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+body.dark .slider {
+  background: #30463c;
+}
